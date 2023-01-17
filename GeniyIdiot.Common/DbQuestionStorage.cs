@@ -13,6 +13,8 @@ namespace GeniyIdiot.Common
             var dbCommand = $"SELECT * FROM {dbTable};";
             var answer = DbProvider.GetData(databaseName, dbCommand);
 
+            DbProvider.CheckExist(databaseName);
+
             foreach (DbDataRecord record in answer)
             {
                 questions.Add(new Question(
